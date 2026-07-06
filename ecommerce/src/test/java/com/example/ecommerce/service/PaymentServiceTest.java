@@ -233,8 +233,8 @@ class PaymentServiceTest {
     void getPaymentByOrderId_noPayment_throwsException() {
         order.setPayment(null);
         when(orderRepository.findById(1L)).thenReturn(Optional.of(order));
-        when(authenticatedUserService.getCurrentUser()).thenReturn(user);
 
         assertThrows(ResourceNotFoundException.class, () -> paymentService.getPaymentByOrderId(1L));
     }
+
 }
