@@ -4,13 +4,13 @@ Full-stack e-commerce platform built with Spring Boot, React, MySQL, Redis, JWT 
 
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Backend | Java 17, Spring Boot 3, Spring Security, JPA/Hibernate |
-| Frontend | React, Vite, Axios, React Router |
-| Database | MySQL 8.4 |
-| Cache | Redis |
-| Containerization | Docker, Docker Compose |
+| Layer            | Technology                                             |
+| ---------------- | ------------------------------------------------------ |
+| Backend          | Java 17, Spring Boot 3, Spring Security, JPA/Hibernate |
+| Frontend         | React, Vite, Axios, React Router                       |
+| Database         | MySQL 8.4                                              |
+| Cache            | Redis                                                  |
+| Containerization | Docker, Docker Compose                                 |
 
 ## Project Structure
 
@@ -50,33 +50,35 @@ Get-Content .\seed-data\products-categories-only.sql | docker exec -i ecommerce-
 
 ### Access
 
-| Service | URL |
-|---|---|
-| Frontend | http://localhost:5173 |
-| Backend API | http://localhost:8080 |
-| MySQL | localhost:3307 (mapped) |
-| Redis | localhost:6379 |
+| Service     | URL                     |
+| ----------- | ----------------------- |
+| Frontend    | http://localhost:5173   |
+| Backend API | http://localhost:8080   |
+| MySQL       | localhost:3307 (mapped) |
+| Redis       | localhost:6379          |
 
 ## Environment Variables
 
 Copy `.env` and update values:
 
-| Variable | Description |
-|---|---|
-| `MYSQL_ROOT_PASSWORD` | MySQL root password |
-| `MYSQL_USER` | MySQL application user |
-| `MYSQL_PASSWORD` | MySQL application user password |
-| `JWT_SECRET` | Secret key for JWT signing (min 32 chars) |
-| `VITE_API_BASE_URL` | API base URL for frontend |
+| Variable              | Description                               |
+| --------------------- | ----------------------------------------- |
+| `MYSQL_ROOT_PASSWORD` | MySQL root password                       |
+| `MYSQL_USER`          | MySQL application user                    |
+| `MYSQL_PASSWORD`      | MySQL application user password           |
+| `JWT_SECRET`          | Secret key for JWT signing (min 32 chars) |
+| `VITE_API_BASE_URL`   | API base URL for frontend                 |
 
 ## API Endpoints
 
 ### Auth
+
 - `POST /api/auth/register` — Register new user
 - `POST /api/auth/login` — Login, returns JWT
 - `GET /api/auth/me` — Current user info
 
 ### Products
+
 - `GET /api/products` — List all products
 - `GET /api/products/{id}` — Get product by ID
 - `POST /api/products` — Create (ADMIN)
@@ -84,6 +86,7 @@ Copy `.env` and update values:
 - `DELETE /api/products/{id}` — Soft delete (ADMIN)
 
 ### Categories
+
 - `GET /api/categories` — List all categories
 - `GET /api/categories/{id}` — Get category by ID
 - `POST /api/categories` — Create (ADMIN)
@@ -91,12 +94,14 @@ Copy `.env` and update values:
 - `DELETE /api/categories/{id}` — Delete (ADMIN)
 
 ### Cart
+
 - `GET /api/cart` — Get current user's cart
 - `POST /api/cart/items` — Add item to cart
 - `PUT /api/cart/items/{id}` — Update cart item
 - `DELETE /api/cart/items/{id}` — Remove cart item
 
 ### Orders
+
 - `POST /api/orders` — Place order
 - `GET /api/orders` — Get user's orders
 - `GET /api/orders/{id}` — Get order detail
@@ -104,10 +109,12 @@ Copy `.env` and update values:
 - `DELETE /api/orders/{id}` — Cancel order
 
 ### Payments
+
 - `POST /api/payments` — Process payment
 - `GET /api/payments/order/{orderId}` — Get payment by order
 
 ### Users
+
 - `GET /api/users` — List all users (ADMIN)
 - `PUT /api/users/{id}` — Update user (ADMIN)
 - `DELETE /api/users/{id}` — Delete user (ADMIN)
