@@ -1,0 +1,31 @@
+# Environment (do not commit)
+.env
+
+# Backend build artifacts
+ecommerce/target/
+ecommerce/.mvn/wrapper/maven-wrapper.jar
+ecommerce/HELP.md
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.settings/
+.project
+.classpath
+.factorypath
+.springBeans
+.sts4-cache
+.vscode/
+
+# Frontend
+ecommerce-UI/ecommerce-ui/node_modules/
+ecommerce-UI/ecommerce-ui/dist/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

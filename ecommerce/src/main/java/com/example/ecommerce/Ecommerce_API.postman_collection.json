@@ -1,0 +1,385 @@
+{
+  "info": {
+    "name": "Ecommerce API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "version": "1.0.0",
+    "_postman_id": "d3fa2816-9c1e-4c4b-8f12-80f72e9d5d4b"
+  },
+  "item": [
+    {
+      "name": "Categories",
+      "item": [
+        {
+          "name": "Create Category",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "http://localhost:8080/api/categories",
+              "host": ["http://localhost:8080"],
+              "path": ["api", "categories"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Electronics\",\n  \"description\": \"Devices and gadgets\"\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Category created', function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get All Categories",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/categories",
+              "host": ["http://localhost:8080"],
+              "path": ["api", "categories"]
+            }
+          }
+        },
+        {
+          "name": "Get Category by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/categories/1",
+              "host": ["http://localhost:8080"],
+              "path": ["api", "categories", "1"]
+            }
+          }
+        },
+        {
+          "name": "Update Category",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "http://localhost:8080/api/categories/1",
+              "host": ["http://localhost:8080"],
+              "path": ["api", "categories", "1"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Electronics Updated\",\n  \"description\": \"Updated category description\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Category",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/categories/1",
+              "host": ["http://localhost:8080"],
+              "path": ["api", "categories", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "Create Product",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "http://localhost:8080/api/products",
+              "host": ["http://localhost:8080"],
+              "path": ["api", "products"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Smartphone\",\n  \"description\": \"Latest mobile device\",\n  \"price\": 699.99,\n  \"stockQuantity\": 45,\n  \"imageUrl\": \"https://example.com/smartphone.png\",\n  \"categoryId\": 1\n}"
+            }
+          }
+        },
+        {
+          "name": "Get All Products",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/products",
+              "host": ["http://localhost:8080"],
+              "path": ["api", "products"]
+            }
+          }
+        },
+        {
+          "name": "Get Product by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/products/1",
+              "host": ["http://localhost:8080"],
+              "path": ["api", "products", "1"]
+            }
+          }
+        },
+        {
+          "name": "Update Product",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "http://localhost:8080/api/products/1",
+              "host": ["http://localhost:8080"],
+              "path": ["api", "products", "1"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"price\": 649.99,\n  \"stockQuantity\": 50\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Product",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/products/1",
+              "host": ["http://localhost:8080"],
+              "path": ["api", "products", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Products by Category",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/products/category/1",
+              "host": ["http://localhost:8080"],
+              "path": ["api", "products", "category", "1"]
+            }
+          }
+        },
+        {
+          "name": "Search Products",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/products/search?keyword=phone",
+              "host": ["http://localhost:8080"],
+              "path": ["api", "products", "search"],
+              "query": [{ "key": "keyword", "value": "phone" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "http://localhost:8080/api/users/register",
+              "host": ["http://localhost:8080"],
+              "path": ["api", "users", "register"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Alice\",\n  \"email\": \"alice@example.com\",\n  \"password\": \"secret123\",\n  \"role\": \"CUSTOMER\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Get User by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/users/1",
+              "host": ["http://localhost:8080"],
+              "path": ["api", "users", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get All Users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/users",
+              "host": ["http://localhost:8080"],
+              "path": ["api", "users"]
+            }
+          }
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "http://localhost:8080/api/users/1",
+              "host": ["http://localhost:8080"],
+              "path": ["api", "users", "1"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Alice Updated\",\n  \"email\": \"alice.updated@example.com\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/users/1",
+              "host": ["http://localhost:8080"],
+              "path": ["api", "users", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cart",
+      "item": [
+        {
+          "name": "Add Item to Cart",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "http://localhost:8080/api/cart/1/items",
+              "host": ["http://localhost:8080"],
+              "path": ["api", "cart", "1", "items"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"productId\": 1,\n  \"quantity\": 2\n}"
+            }
+          }
+        },
+        {
+          "name": "Update Cart Item",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "http://localhost:8080/api/cart/1/items/1",
+              "host": ["http://localhost:8080"],
+              "path": ["api", "cart", "1", "items", "1"]
+            },
+            "body": { "mode": "raw", "raw": "{\n  \"quantity\": 3\n}" }
+          }
+        },
+        {
+          "name": "Delete Cart Item",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/cart/1/items/1",
+              "host": ["http://localhost:8080"],
+              "path": ["api", "cart", "1", "items", "1"]
+            }
+          }
+        },
+        {
+          "name": "Clear Cart",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/cart/1/clear",
+              "host": ["http://localhost:8080"],
+              "path": ["api", "cart", "1", "clear"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Orders",
+      "item": [
+        {
+          "name": "Create Order",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "http://localhost:8080/api/orders/1",
+              "host": ["http://localhost:8080"],
+              "path": ["api", "orders", "1"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": 1,\n  \"cartItemIds\": [1]\n}"
+            }
+          }
+        },
+        {
+          "name": "Get Order by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/orders/1",
+              "host": ["http://localhost:8080"],
+              "path": ["api", "orders", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Orders by User ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/orders/user/1",
+              "host": ["http://localhost:8080"],
+              "path": ["api", "orders", "user", "1"]
+            }
+          }
+        },
+        {
+          "name": "Update Order Status",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "http://localhost:8080/api/orders/1/status",
+              "host": ["http://localhost:8080"],
+              "path": ["api", "orders", "1", "status"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orderStatus\": \"COMPLETED\"\n}"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
